@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --color-maroon-950: #250206;
+  --color-maroon-900: #3b050c;
+  --color-maroon-800: #540914;
+  --color-maroon-700: #730e1d;
+  --color-maroon-600: #931427;
+  --color-gold-300: #fae8a4;
+  --color-gold-400: #eacb67;
+  --color-gold-500: #d4af37;
+  --color-gold-600: #b69228;
+  --color-gold-700: #94741c;
+  --color-ivory: #FAF6EE;
+  --color-ivory-50: #FCF9F2;
+  --color-ivory-100: #F6EFE0;
+}
+
+/* Custom Scrollbar for Luxury Boutique feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6EE;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #931427;
+}
+
+/* Subtle gold shimmer effect */
+@keyframes shimmerGold {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFE29F 0%, #D4AF37 50%, #B69228 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-border-gradient {
+  border-image: linear-gradient(to right, #d4af37, #fae8a4, #d4af37) 1;
+}
