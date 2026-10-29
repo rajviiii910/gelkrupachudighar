@@ -1,7 +1,7 @@
 /**
  * Gelkrupa Chudighar - Boutique Configuration & Data
+ * Verified from Justdial Profile: https://jsdl.in/DT-54QUA2AA6A6
  * Location: Mota Varachha, Surat, Gujarat
- * Keep contact details, products, and prices easily configurable.
  */
 
 export interface Product {
@@ -11,9 +11,9 @@ export interface Product {
   categoryLabel: string;
   image: string;
   price?: number;
-  priceNote?: string; // e.g. "Price per set (Dozen)" or "Customized bridal set"
+  priceNote?: string;
   description: string;
-  sizes: string[]; // e.g. ["2.2", "2.4", "2.6", "2.8", "2.10"]
+  sizes: string[];
   features: string[];
   isFeatured?: boolean;
   isBestseller?: boolean;
@@ -45,23 +45,38 @@ export interface BangleSizeGuide {
 
 export const STORE_INFO = {
   name: 'Gelkrupa Chudighar',
+  gujaratiName: 'શ્રી ગેલકૃપા ચૂડીઘર',
   tagline: 'Every Bangle Tells a Beautiful Story',
   subTagline: 'Luxurious Bridal Bangles & Traditional Chudi Boutique',
   gujaratiMotto: 'સૌભાગ્ય અને પરંપરાગત શણગાર',
+  justdial: {
+    url: 'https://jsdl.in/DT-54QUA2AA6A6',
+    rating: '4.9',
+    reviewCount: 'Justdial Verified',
+    label: 'Verified on Justdial',
+  },
   location: {
+    shopNo: 'Shop No. 24, Ground Floor, A-7',
+    complex: 'Saurashtra Township',
+    landmark: 'Near ABC Circle, Sai Shradha Residency (Sudama Chowk Area)',
+    road: 'Varachha Village Road',
     area: 'Mota Varachha',
     city: 'Surat',
     state: 'Gujarat',
     country: 'India',
     pincode: '394101',
-    fullAddress: 'Gelkrupa Chudighar, Near Sudama Chowk, Mota Varachha, Surat, Gujarat 394101',
-    googleMapsSearchUrl: 'https://www.google.com/maps/search/?api=1&query=Mota+Varachha+Surat+Gujarat',
-    embedMapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14875.485303720935!2d72.875225!3d21.237076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f475a89e6eb%3A0xe54c4ff73a1ba2e!2sMota%20Varachha%2C%20Surat%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
+    fullAddress: 'Shop No. 24, A-7, Ground Floor, Saurashtra Township, Near ABC Circle, Sai Shradha Residency, Mota Varachha, Surat, Gujarat 394101',
+    googleMapsSearchUrl: 'https://www.google.com/maps/search/?api=1&query=Shop+No+24+Saurashtra+Township+Near+ABC+Circle+Mota+Varachha+Surat+Gujarat+394101',
+    embedMapUrl: 'https://maps.google.com/maps?q=Saurashtra+Township+Mota+Varachha+Surat+Gujarat+394101&t=&z=15&ie=UTF8&iwloc=&output=embed',
   },
   contact: {
-    // Easily configurable WhatsApp / phone number
-    whatsappNumber: '+919825000000', // Update this with boutique's verified WhatsApp number
-    displayPhone: '+91 98250 00000',
+    // Direct call number requested by boutique owner
+    callNumber: '+919925421871',
+    displayCallNumber: '+91 99254 21871',
+    // Verified WhatsApp & secondary mobile
+    whatsappNumber: '+917201811622',
+    displayPhone: '+91 72018 11622',
+    localPhone: '072018 11622',
     email: 'gelkrupachudighar@gmail.com',
     instagram: '@gelkrupa_chudighar',
     hours: [
@@ -231,6 +246,20 @@ export const PRODUCTS: Product[] = [
 
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
+    id: 'gal-store-1',
+    title: 'Gelkrupa Chudighar Showroom in Mota Varachha',
+    category: 'Storefront',
+    image: '/src/assets/images/boutique_store_display_1793257579012.jpg',
+    caption: 'Our boutique at Shop No. 24, Saurashtra Township, near ABC Circle, Mota Varachha, Surat.',
+  },
+  {
+    id: 'gal-store-2',
+    title: 'Boutique Bangle Counter & Sizing Table',
+    category: 'Storefront',
+    image: '/src/assets/images/boutique_counter_trial_1793257578750.jpg',
+    caption: 'Velvet trial counter equipped with wrist sizing gauges and bridal collections.',
+  },
+  {
     id: 'gal-1',
     title: 'Royal Bridal Chudi Set with Kundan Latkans',
     category: 'Bridal',
@@ -289,6 +318,6 @@ export const BOUTIQUE_VALUES = [
   },
   {
     title: 'Heart of Mota Varachha',
-    description: 'A trusted local sanctuary for brides, festive celebrants, and bangle lovers in Surat, Gujarat.',
+    description: 'Located at Saurashtra Township near ABC Circle, trusted by brides and families across Surat.',
   },
 ];

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, MessageCircle, Clock, Heart, Sparkles, Instagram } from 'lucide-react';
+import { MapPin, Phone, MessageCircle, Clock, Star, ExternalLink } from 'lucide-react';
 import { STORE_INFO, COLLECTIONS } from '../data/storeConfig';
 import { useStore } from '../context/StoreContext';
 
@@ -24,19 +24,30 @@ export const Footer: React.FC = () => {
               {STORE_INFO.name}
             </h3>
             <p className="text-xs text-[#d4af37] font-serif tracking-widest uppercase">
-              {STORE_INFO.gujaratiMotto}
+              {STORE_INFO.gujaratiName} · {STORE_INFO.gujaratiMotto}
             </p>
             <p className="text-xs sm:text-sm text-[#FAF6EE]/80 leading-relaxed font-light">
-              Mota Varachha’s distinguished bridal chudi & Indian bangles boutique. Specializing in handcrafted glass bangles, temple kadas, and custom wedding bridal sets.
+              Mota Varachha’s distinguished bridal chudi & Indian bangles boutique at Saurashtra Township near ABC Circle. Specializing in handcrafted glass bangles, temple kadas, and custom wedding bridal sets.
             </p>
-            <div className="pt-2">
+            <div className="flex flex-wrap items-center gap-3 pt-2">
               <button
                 onClick={handleWhatsApp}
                 className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-[#250206] bg-gradient-to-r from-[#fae8a4] via-[#d4af37] to-[#b69228] hover:from-white hover:to-[#d4af37] rounded-lg transition-colors"
               >
                 <MessageCircle className="w-3.5 h-3.5 fill-[#250206]" />
-                <span>Chat on WhatsApp</span>
+                <span>WhatsApp Us</span>
               </button>
+
+              <a
+                href={STORE_INFO.justdial.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-2 text-xs font-medium text-amber-300 hover:text-white border border-amber-300/30 hover:border-amber-300 rounded-lg transition-colors"
+              >
+                <Star className="w-3.5 h-3.5 fill-amber-300" />
+                <span>Justdial Profile</span>
+                <ExternalLink className="w-3 h-3 opacity-60" />
+              </a>
             </div>
           </div>
 
@@ -76,8 +87,11 @@ export const Footer: React.FC = () => {
             <div className="flex items-start gap-3 text-xs text-[#FAF6EE]/85">
               <MapPin className="w-4 h-4 text-[#d4af37] shrink-0 mt-0.5" />
               <div>
-                <strong className="block text-white font-medium">{STORE_INFO.name}</strong>
-                <span>{STORE_INFO.location.fullAddress}</span>
+                <strong className="block text-white font-medium">
+                  {STORE_INFO.name} ({STORE_INFO.location.shopNo})
+                </strong>
+                <span>{STORE_INFO.location.complex}, {STORE_INFO.location.landmark}</span>
+                <span className="block">{STORE_INFO.location.area}, {STORE_INFO.location.city} - {STORE_INFO.location.pincode}</span>
               </div>
             </div>
 
@@ -90,14 +104,27 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 text-xs text-[#FAF6EE]/85 pt-1">
-              <Phone className="w-4 h-4 text-[#d4af37] shrink-0" />
-              <a
-                href={`tel:${STORE_INFO.contact.whatsappNumber}`}
-                className="hover:text-[#d4af37] font-mono tabular-nums"
-              >
-                {STORE_INFO.contact.displayPhone}
-              </a>
+            <div className="space-y-1.5 pt-1 text-xs text-[#FAF6EE]/85">
+              <div className="flex items-center gap-2">
+                <Phone className="w-3.5 h-3.5 text-[#d4af37] shrink-0" />
+                <span className="text-white/60">Call:</span>
+                <a
+                  href={`tel:${STORE_INFO.contact.callNumber}`}
+                  className="hover:text-[#d4af37] font-mono tabular-nums font-semibold text-white"
+                >
+                  {STORE_INFO.contact.displayCallNumber}
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <MessageCircle className="w-3.5 h-3.5 text-[#25D366] shrink-0" />
+                <span className="text-white/60">WhatsApp:</span>
+                <a
+                  href={`tel:${STORE_INFO.contact.whatsappNumber}`}
+                  className="hover:text-[#d4af37] font-mono tabular-nums"
+                >
+                  {STORE_INFO.contact.displayPhone}
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -105,10 +132,12 @@ export const Footer: React.FC = () => {
         {/* Bottom row */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#FAF6EE]/60">
           <div>
-            © {new Date().getFullYear()} {STORE_INFO.name}. All rights reserved. Mota Varachha, Surat, Gujarat.
+            © {new Date().getFullYear()} {STORE_INFO.name}. All rights reserved. Saurashtra Township, Mota Varachha, Surat, Gujarat.
           </div>
-          <div className="flex items-center gap-1.5 text-xs text-[#FAF6EE]/60">
-            <span>Crafted with love for Indian brides & celebrations</span>
+          <div className="flex items-center gap-2 text-xs text-[#FAF6EE]/60">
+            <span>Justdial Verified (DT-54QUA2AA6A6)</span>
+            <span>·</span>
+            <span>Crafted for Indian brides & celebrations</span>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingBag, MessageCircle, Menu, X, Ruler } from 'lucide-react';
+import { ShoppingBag, MessageCircle, Menu, X, Ruler, Phone } from 'lucide-react';
 import { STORE_INFO } from '../data/storeConfig';
 import { useStore } from '../context/StoreContext';
 
@@ -89,6 +89,16 @@ export const Navbar: React.FC = () => {
               )}
             </button>
 
+            {/* Quick Call Button */}
+            <a
+              href={`tel:${STORE_INFO.contact.callNumber}`}
+              className="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-[#FAF6EE] hover:text-[#d4af37] border border-white/20 hover:border-[#d4af37] rounded-lg transition-colors whitespace-nowrap shrink-0"
+              title={`Call: ${STORE_INFO.contact.displayCallNumber}`}
+            >
+              <Phone className="w-3.5 h-3.5 text-[#d4af37]" />
+              <span className="font-mono tabular-nums">{STORE_INFO.contact.displayCallNumber}</span>
+            </a>
+
             {/* Primary Action Button: WhatsApp Enquiry */}
             <button
               onClick={handleQuickWhatsApp}
@@ -127,6 +137,14 @@ export const Navbar: React.FC = () => {
           </nav>
 
           <div className="pt-3 border-t border-white/10 space-y-2.5">
+            <a
+              href={`tel:${STORE_INFO.contact.callNumber}`}
+              className="w-full flex items-center justify-center gap-2 py-2.5 px-4 text-xs font-semibold text-white bg-[#3b050c] border border-[#d4af37]/50 rounded-lg"
+            >
+              <Phone className="w-4 h-4 text-[#d4af37]" />
+              <span>Call: {STORE_INFO.contact.displayCallNumber}</span>
+            </a>
+
             <button
               onClick={() => {
                 setIsSizeGuideOpen(true);
