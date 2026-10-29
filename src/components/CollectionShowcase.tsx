@@ -20,7 +20,7 @@ export const CollectionShowcase: React.FC<CollectionShowcaseProps> = ({ onSelect
             Shop by Collection
           </h2>
           <p className="text-sm sm:text-base text-stone-600 font-light leading-relaxed">
-            From the auspicious tinkling of pure glass chudi to regal bridal chuda and antique temple kadas, explore our quintessential offerings.
+            From sparkling American Diamond (AD) heavy bridal chokers and royal Rani Haars to traditional chuda, temple kadas, and pure glass bangles, explore our boutique collections.
           </p>
         </div>
 
@@ -47,8 +47,15 @@ export const CollectionShowcase: React.FC<CollectionShowcaseProps> = ({ onSelect
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
                   {/* Clean unboxed count label */}
-                  <div className="absolute top-4 left-4 text-[11px] font-medium tracking-wider uppercase text-white bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-sm">
-                    {col.countLabel}
+                  <div className="absolute top-4 left-4 flex items-center gap-2">
+                    <span className="text-[11px] font-medium tracking-wider uppercase text-white bg-black/50 backdrop-blur-xs px-2.5 py-1 rounded-sm">
+                      {col.countLabel}
+                    </span>
+                    {index < 2 && (
+                      <span className="text-[10px] font-bold tracking-wider uppercase text-[#250206] bg-[#d4af37] px-2 py-1 rounded-sm shadow-sm">
+                        ⭐ Main Focus
+                      </span>
+                    )}
                   </div>
                 </div>
 

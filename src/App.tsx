@@ -20,11 +20,12 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { ProductModal } from './components/ProductModal';
 import { SizeGuideModal } from './components/SizeGuideModal';
 import { EnquiryDrawer } from './components/EnquiryDrawer';
+import { SpecialOffers } from './components/SpecialOffers';
 import { WhatsAppPhotoModal } from './components/WhatsAppPhotoModal';
 import { Collection } from './data/storeConfig';
 
 export default function App() {
-  const [selectedCategory, setSelectedCategory] = useState<Collection['id'] | 'all'>('all');
+  const [selectedCategory, setSelectedCategory] = useState<Collection['id'] | 'all' | 'offers'>('all');
 
   const handleSelectCollection = (categoryId: Collection['id']) => {
     setSelectedCategory(categoryId);
@@ -48,10 +49,13 @@ export default function App() {
           {/* 1. Animated Full-Screen Hero */}
           <Hero />
 
+          {/* Special Wedding Season Offers & Combos */}
+          <SpecialOffers />
+
           {/* 2. Shop by Collection */}
           <CollectionShowcase onSelectCollection={handleSelectCollection} />
 
-          {/* 3. Featured Products with WhatsApp Enquiry */}
+          {/* 3. Featured Products & Heavy Jewellery with WhatsApp Enquiry */}
           <ProductCatalog
             selectedCategory={selectedCategory}
             onCategoryChange={(cat) => setSelectedCategory(cat)}

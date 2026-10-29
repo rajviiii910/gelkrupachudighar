@@ -33,11 +33,26 @@ export const Hero: React.FC = () => {
       {/* Hero Content Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center flex flex-col items-center">
         {/* Subtle Gujarati Cultural Kicker (Clean unboxed text, no pills) */}
-        <div className="flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm font-medium tracking-widest text-[#d4af37] uppercase mb-4">
+        <div className="flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm font-medium tracking-widest text-[#d4af37] uppercase mb-3">
           <Sparkles className="w-4 h-4 text-[#fae8a4]" />
           <span>{STORE_INFO.gujaratiMotto}</span>
           <span aria-hidden="true">·</span>
-          <span>Saurashtra Township, ABC Circle · Mota Varachha, Surat</span>
+          <span>Heavy Bridal Jewellery & Bangles Boutique · Mota Varachha, Surat</span>
+        </div>
+
+        {/* Live Wedding Season Offer Ticker Pill */}
+        <div className="mb-5">
+          <a
+            href="#offers"
+            className="group inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 via-[#d4af37]/30 to-amber-500/20 hover:from-amber-500/30 hover:to-amber-500/30 border border-[#d4af37]/60 text-xs font-semibold text-[#fae8a4] backdrop-blur-md transition-all shadow-md hover:scale-102"
+          >
+            <span className="flex h-2 w-2 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-500"></span>
+            </span>
+            <span>🎁 Wedding Season Special: Free Bridal Chudi Set with Heavy AD Diamond Necklace!</span>
+            <span className="text-[#d4af37] underline font-bold group-hover:text-white">View Offers &rarr;</span>
+          </a>
         </div>
 
         {/* Main Heading - Exact user requirement */}
@@ -48,9 +63,9 @@ export const Hero: React.FC = () => {
           </span>
         </h1>
 
-        {/* Editorial Subtitle */}
-        <p className="text-base sm:text-lg md:text-xl text-[#FAF6EE]/85 max-w-2xl font-light leading-relaxed mb-8" style={{ textWrap: 'balance' }}>
-          Welcome to <strong className="font-semibold text-white">{STORE_INFO.name} ({STORE_INFO.gujaratiName})</strong>, Surat’s premier destination for handcrafted glass bangles, royal bridal chuda sets, temple kadas, and vibrant festive adornments.
+        {/* Editorial Subtitle with strong Jewellery focus */}
+        <p className="text-base sm:text-lg md:text-xl text-[#FAF6EE]/85 max-w-3xl font-light leading-relaxed mb-8" style={{ textWrap: 'balance' }}>
+          Welcome to <strong className="font-semibold text-white">{STORE_INFO.name} ({STORE_INFO.gujaratiName})</strong> — Surat’s exclusive boutique for <span className="text-[#fae8a4] font-medium">heavy American Diamond (AD) necklace sets, royal bridal chokers, Rani Haars</span>, custom wedding chuda with pearl latkans, and handcrafted colourful glass bangles.
         </p>
 
         {/* Justdial Verification Badge */}
@@ -74,46 +89,45 @@ export const Hero: React.FC = () => {
         {/* Action CTAs */}
         <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-16">
           <a
-            href="#collections"
+            href="#featured"
             className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold text-[#250206] bg-gradient-to-r from-[#fae8a4] via-[#d4af37] to-[#b69228] hover:from-[#fff] hover:to-[#d4af37] rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 active:scale-[0.98]"
           >
-            Explore Collections
+            Explore Heavy Jewellery & Sets
+          </a>
+
+          <a
+            href="#offers"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold text-[#FAF6EE] bg-amber-500/20 hover:bg-amber-500/30 border border-[#d4af37] rounded-xl backdrop-blur-xs transition-all duration-300 active:scale-[0.98]"
+          >
+            <span>Wedding Offers 🎁</span>
           </a>
 
           <button
             onClick={handleWhatsAppChat}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 text-sm font-medium text-[#FAF6EE] bg-white/10 hover:bg-white/15 border border-[#d4af37]/40 hover:border-[#d4af37] rounded-xl backdrop-blur-xs transition-all duration-300 active:scale-[0.98]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-sm font-medium text-[#FAF6EE] bg-white/10 hover:bg-white/15 border border-[#d4af37]/40 hover:border-[#d4af37] rounded-xl backdrop-blur-xs transition-all duration-300 active:scale-[0.98]"
           >
             <MessageCircle className="w-4 h-4 text-[#25D366]" />
             <span>WhatsApp Enquiry</span>
           </button>
-
-          <a
-            href="#visit"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-medium text-[#FAF6EE]/80 hover:text-white transition-colors"
-          >
-            <MapPin className="w-4 h-4 text-[#d4af37]" />
-            <span>Shop No. 24, Mota Varachha</span>
-          </a>
         </div>
 
         {/* Trust Highlights Strip (Zero-pill discipline, clean typographic layout) */}
-        <div className="w-full max-w-3xl pt-8 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div className="w-full max-w-4xl pt-8 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div>
-            <div className="font-serif text-xl sm:text-2xl font-bold text-[#d4af37]">Pure Glass</div>
-            <div className="text-xs text-[#FAF6EE]/75 mt-0.5">Authentic Hand-Blown</div>
+            <div className="font-serif text-xl sm:text-2xl font-bold text-[#d4af37]">AD Diamond</div>
+            <div className="text-xs text-[#FAF6EE]/75 mt-0.5">Heavy Bridal Necklaces</div>
+          </div>
+          <div>
+            <div className="font-serif text-xl sm:text-2xl font-bold text-[#d4af37]">Royal Offers</div>
+            <div className="text-xs text-[#FAF6EE]/75 mt-0.5">Free Bridal Chuda Combo</div>
           </div>
           <div>
             <div className="font-serif text-xl sm:text-2xl font-bold text-[#d4af37]">Bridal Chuda</div>
             <div className="text-xs text-[#FAF6EE]/75 mt-0.5">Custom Latkan Sets</div>
           </div>
           <div>
-            <div className="font-serif text-xl sm:text-2xl font-bold text-[#d4af37]">Sizes 2-2 to 2-10</div>
-            <div className="text-xs text-[#FAF6EE]/75 mt-0.5">All Wrist Fits</div>
-          </div>
-          <div>
-            <div className="font-serif text-xl sm:text-2xl font-bold text-[#d4af37]">ABC Circle</div>
-            <div className="text-xs text-[#FAF6EE]/75 mt-0.5">Mota Varachha Showroom</div>
+            <div className="font-serif text-xl sm:text-2xl font-bold text-[#d4af37]">Mota Varachha</div>
+            <div className="text-xs text-[#FAF6EE]/75 mt-0.5">ABC Circle Showroom</div>
           </div>
         </div>
 

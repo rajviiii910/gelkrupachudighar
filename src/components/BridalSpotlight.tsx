@@ -37,45 +37,67 @@ export const BridalSpotlight: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Image Duo with Luxury Framing */}
-          <div className="relative">
-            <div className="relative z-10 rounded-2xl overflow-hidden border border-[#d4af37]/40 shadow-2xl">
-              <img
-                src="/src/assets/images/collection_bridal_chuda_1793184886986.jpg"
-                alt="Bespoke Indian Bridal Chuda Set by Gelkrupa Chudighar Surat"
-                referrerPolicy="no-referrer"
-                className="w-full aspect-4/3 object-cover hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
-              <div className="absolute bottom-4 left-4 right-4 text-xs font-serif text-[#FAF6EE] italic">
-                “Handcrafted Red & Ivory Chuda with Heirloom Kundan Latkans”
+          <div className="relative space-y-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+              <div className="relative rounded-2xl overflow-hidden border border-[#d4af37]/40 shadow-2xl">
+                <img
+                  src="/src/assets/images/ad_diamond_heavy_necklace_1793263370796.jpg"
+                  alt="Heavy Bridal American Diamond Necklace Set"
+                  referrerPolicy="no-referrer"
+                  className="w-full aspect-4/5 object-cover hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-3 right-3 text-[11px] font-serif text-[#FAF6EE] leading-tight">
+                  “Heavy AD Bridal Choker & Tikka Set”
+                </div>
+              </div>
+
+              <div className="relative rounded-2xl overflow-hidden border border-[#d4af37]/40 shadow-2xl">
+                <img
+                  src="/src/assets/images/collection_bridal_chuda_1793184886986.jpg"
+                  alt="Bespoke Indian Bridal Chuda Set"
+                  referrerPolicy="no-referrer"
+                  className="w-full aspect-4/5 object-cover hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-3 right-3 text-[11px] font-serif text-[#FAF6EE] leading-tight">
+                  “Handcrafted Red & Ivory Bridal Chuda”
+                </div>
               </div>
             </div>
 
-            {/* Overlapping small accent card */}
-            <div className="hidden sm:block absolute -bottom-6 -right-6 z-20 w-52 bg-[#3b050c] p-4 rounded-xl border border-[#d4af37]/50 shadow-2xl">
-              <div className="flex items-center gap-2 text-[#d4af37] text-xs font-serif font-bold mb-1">
-                <Gift className="w-4 h-4" />
-                <span>Velvet Box Packaging</span>
+            {/* Accent card linking to offers */}
+            <a
+              href="#offers"
+              className="group bg-[#3b050c] p-3.5 rounded-xl border border-[#d4af37]/60 shadow-xl flex items-center justify-between hover:border-[#d4af37] transition-all hover:bg-[#480710]"
+            >
+              <div className="flex items-center gap-2.5">
+                <Gift className="w-4 h-4 text-[#d4af37]" />
+                <div>
+                  <div className="text-xs font-serif font-bold text-white flex items-center gap-1.5">
+                    <span>Royal Bridal Combo Offer</span>
+                    <span className="text-[10px] text-amber-300 font-mono bg-amber-500/20 px-1.5 py-0.2 rounded">FREE CHUDA</span>
+                  </div>
+                  <div className="text-[11px] text-[#FAF6EE]/80">Free Bridal Chudi Set with Heavy AD Diamond Necklace</div>
+                </div>
               </div>
-              <p className="text-[11px] text-[#FAF6EE]/80 leading-snug">
-                Protective heirloom casing included with every full bridal set.
-              </p>
-            </div>
+              <span className="text-xs text-[#d4af37] underline font-semibold group-hover:text-white">Claim &rarr;</span>
+            </a>
           </div>
 
           {/* Right Column: Copy & Bridal Service */}
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold tracking-widest text-[#d4af37] uppercase mb-3">
               <Sparkles className="w-3.5 h-3.5 text-[#fae8a4]" />
-              <span>Royal Wedding Edition</span>
+              <span>Royal Bridal & Jewellery Edition</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-[#FAF6EE] tracking-tight leading-tight mb-6" style={{ textWrap: 'balance' }}>
-              Bridal & Festive Collections Showcase
+              Bridal Chuda & Heavy Jewellery Showcase
             </h2>
 
             <p className="text-sm sm:text-base text-[#FAF6EE]/85 font-light leading-relaxed mb-8">
-              A bride’s chuda is not merely jewelry; it is a sacred symbol of auspicious beginnings and timeless grace. At <strong className="text-white font-medium">{STORE_INFO.name}</strong> in Mota Varachha, we specialize in curating custom bridal chuda sets that harmonize seamlessly with your wedding couture.
+              A bride’s adornment is a complete harmony of grace. At <strong className="text-white font-medium">{STORE_INFO.name}</strong> in Mota Varachha, Surat, we curate complete wedding collections: bespoke bridal chuda sets, heirloom kundan kadas, and grand <strong>American Diamond (AD) heavy choker sets, Rani Haars, and temple jewellery</strong> customized to your wedding lehenga palette.
             </p>
 
             {/* 3 Step Consultation Process */}

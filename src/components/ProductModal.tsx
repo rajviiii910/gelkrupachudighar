@@ -86,16 +86,36 @@ export const ProductModal: React.FC = () => {
               {activeQuickViewProduct.name}
             </h3>
 
+            {/* Offer Ribbon if present */}
+            {activeQuickViewProduct.offerBadge && (
+              <div className="p-2.5 rounded-xl bg-gradient-to-r from-amber-500/15 via-[#d4af37]/25 to-amber-500/15 border border-[#d4af37] flex items-center gap-2">
+                <Sparkles className="w-4 h-4 text-[#94741c] shrink-0" />
+                <span className="text-xs font-bold text-[#3b050c] uppercase tracking-wide">
+                  {activeQuickViewProduct.offerBadge}
+                </span>
+              </div>
+            )}
+
             {/* Price */}
-            <div className="flex items-baseline gap-2 pt-1 border-b border-stone-200 pb-3">
+            <div className="flex items-baseline gap-2 pt-1 border-b border-stone-200 pb-3 flex-wrap">
               {activeQuickViewProduct.price ? (
                 <>
                   <span className="text-2xl font-serif font-bold text-[#3b050c] tabular-nums">
                     ₹{activeQuickViewProduct.price.toLocaleString('en-IN')}
                   </span>
+                  {activeQuickViewProduct.originalPrice && (
+                    <span className="text-sm text-stone-400 line-through tabular-nums">
+                      ₹{activeQuickViewProduct.originalPrice.toLocaleString('en-IN')}
+                    </span>
+                  )}
+                  {activeQuickViewProduct.originalPrice && (
+                    <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded">
+                      SAVE ₹{(activeQuickViewProduct.originalPrice - activeQuickViewProduct.price).toLocaleString('en-IN')}
+                    </span>
+                  )}
                   {activeQuickViewProduct.priceNote && (
-                    <span className="text-xs text-stone-500 font-sans">
-                      ({activeQuickViewProduct.priceNote})
+                    <span className="text-xs text-stone-500 font-sans block w-full mt-1">
+                      {activeQuickViewProduct.priceNote}
                     </span>
                   )}
                 </>

@@ -267,11 +267,12 @@ export const ContactSection: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                     className="w-full bg-[#FCF9F2] border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-800 focus:outline-hidden focus:border-[#d4af37]"
                   >
+                    <option value="AD Diamond Jewellery">AD Diamond Jewellery & Heavy Chokers</option>
+                    <option value="Bridal Necklaces & Rani Haar">Bridal Necklaces & Rani Haar Sets</option>
                     <option value="Bridal Chudi Sets">Bridal Chudi Sets & Chuda</option>
                     <option value="Glass Bangles">Glass Bangles (Traditional)</option>
                     <option value="Traditional Bangles">Traditional Kadas & Patlas</option>
-                    <option value="Festive Wear">Festive & Navratri Wear</option>
-                    <option value="Party Wear">Party & Cocktail Bangles</option>
+                    <option value="Festive & Party Wear">Festive & Party Wear</option>
                   </select>
                 </div>
 

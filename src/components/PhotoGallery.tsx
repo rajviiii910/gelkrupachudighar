@@ -7,7 +7,7 @@ export const PhotoGallery: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const categories = ['All', 'Storefront', 'Bridal', 'Glass', 'Traditional', 'Festive'];
+  const categories = ['All', 'Jewellery', 'Bridal', 'Glass', 'Traditional', 'Festive', 'Storefront'];
 
   const filteredItems = GALLERY_ITEMS.filter((item) => {
     if (selectedCategory === 'All') return true;

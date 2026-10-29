@@ -23,13 +23,13 @@ export const Navbar: React.FC = () => {
     window.open(generateWhatsAppUrl(msg), '_blank', 'noopener,noreferrer');
   };
 
-  const navLinks = [
+  const navLinks: { label: string; href: string; isOffer?: boolean; isHighlight?: boolean }[] = [
+    { label: 'Heavy Jewellery', href: '#featured', isHighlight: true },
+    { label: 'Special Offers 🎁', href: '#offers', isOffer: true },
+    { label: 'Bridal Sets', href: '#bridal' },
     { label: 'Collections', href: '#collections' },
-    { label: 'Featured', href: '#featured' },
-    { label: 'Bridal Chuda', href: '#bridal' },
-    { label: 'Our Story', href: '#story' },
     { label: 'Gallery', href: '#gallery' },
-    { label: 'Visit Boutique', href: '#visit' },
+    { label: 'Visit Showroom', href: '#visit' },
   ];
 
   return (
@@ -56,7 +56,13 @@ export const Navbar: React.FC = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="hover:text-[#d4af37] transition-colors whitespace-nowrap shrink-0 relative py-1 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#d4af37] hover:after:w-full after:transition-all after:duration-200"
+                className={`whitespace-nowrap shrink-0 relative py-1 transition-all ${
+                  link.isOffer
+                    ? 'text-[#fae8a4] font-semibold px-2.5 py-1 rounded-full bg-amber-500/20 border border-[#d4af37]/50 hover:bg-amber-500/30'
+                    : link.isHighlight
+                    ? 'text-white font-semibold hover:text-[#d4af37] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#d4af37] hover:after:w-full after:transition-all'
+                    : 'hover:text-[#d4af37] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-[#d4af37] hover:after:w-full after:transition-all after:duration-200'
+                }`}
               >
                 {link.label}
               </a>
