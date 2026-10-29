@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, Send, Plus, Check, Ruler, Sparkles, ShieldCheck } from 'lucide-react';
 import { useStore } from '../context/StoreContext';
 import { STORE_INFO } from '../data/storeConfig';
+import { shareProductToWhatsApp } from '../utils/shareUtils';
 
 export const ProductModal: React.FC = () => {
   const {
@@ -10,6 +11,7 @@ export const ProductModal: React.FC = () => {
     addToEnquiry,
     setIsSizeGuideOpen,
     generateWhatsAppUrl,
+    openWhatsAppInquiry,
   } = useStore();
 
   const [selectedSize, setSelectedSize] = useState<string>('2-6');
@@ -28,12 +30,13 @@ export const ProductModal: React.FC = () => {
   };
 
   const handleDirectWhatsApp = () => {
-    const priceText = activeQuickViewProduct.price
-      ? `priced at ₹${activeQuickViewProduct.price}`
-      : 'custom priced';
-    const message = `Namaste Gelkrupa Chudighar! 🙏\n\nI am interested in ordering/inquiring about *${activeQuickViewProduct.name}* (${activeQuickViewProduct.categoryLabel}, ${priceText}) in size *${currentSize}*.\n\nCould you please share availability and more details? Thank you!`;
-    const url = generateWhatsAppUrl(message);
-    window.open(url, '_blank', 'noopener,noreferrer');
+    openWhatsAppInquiry({
+      title: activeQuickViewProduct.name,
+      image: activeQuickViewProduct.image,
+      price: activeQuickViewProduct.price,
+      categoryLabel: activeQuickViewProduct.categoryLabel,
+      size: currentSize,
+    });
   };
 
   return (
@@ -170,7 +173,7 @@ export const ProductModal: React.FC = () => {
               className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-medium text-sm rounded-xl shadow-md transition-all active:scale-[0.98]"
             >
               <Send className="w-4 h-4" />
-              <span>Enquire on WhatsApp (Size {currentSize})</span>
+              <span>Send Enquiry & Photo to WhatsApp (Size {currentSize})</span>
             </button>
 
             <button

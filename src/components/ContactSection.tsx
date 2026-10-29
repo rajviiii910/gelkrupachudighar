@@ -19,7 +19,8 @@ export const ContactSection: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const formattedMessage = `Namaste Gelkrupa Chudighar! 🙏\n\n*Website Enquiry Details:*\n• Name: ${formData.name || 'Valued Customer'}\n• City/Location: ${formData.city}\n• Collection of Interest: ${formData.category}\n• Wrist Size: ${formData.size}\n${formData.message ? `• Note/Requirement: ${formData.message}` : ''}\n\nCould you please share your latest catalogue and availability? Thank you!`;
+    const origin = typeof window !== 'undefined' ? window.location.origin : '';
+    const formattedMessage = `Namaste Gelkrupa Chudighar! 🙏\n\n*Website Enquiry Details:*\n• Name: ${formData.name || 'Valued Customer'}\n• City/Location: ${formData.city}\n• Collection of Interest: ${formData.category}\n• Wrist Size: ${formData.size}\n• 📸 Catalogue Link: ${origin}/#collections\n${formData.message ? `• Note/Requirement: ${formData.message}\n` : ''}\nCould you please share your latest catalogue and availability? Thank you!`;
 
     const url = generateWhatsAppUrl(formattedMessage);
     window.open(url, '_blank', 'noopener,noreferrer');

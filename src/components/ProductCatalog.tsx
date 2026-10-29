@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Search, Send, Plus, Eye, Check, Ruler, Sparkles } from 'lucide-react';
 import { PRODUCTS, Product, Collection } from '../data/storeConfig';
 import { useStore } from '../context/StoreContext';
+import { shareProductToWhatsApp } from '../utils/shareUtils';
 
 interface ProductCatalogProps {
   selectedCategory: Collection['id'] | 'all';
@@ -12,7 +13,7 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
   selectedCategory,
   onCategoryChange,
 }) => {
-  const { addToEnquiry, setActiveQuickViewProduct, setIsSizeGuideOpen, generateWhatsAppUrl } = useStore();
+  const { addToEnquiry, setActiveQuickViewProduct, setIsSizeGuideOpen, generateWhatsAppUrl, openWhatsAppInquiry } = useStore();
   const [searchQuery, setSearchQuery] = useState('');
   const [addedIds, setAddedIds] = useState<Record<string, boolean>>({});
 
@@ -45,9 +46,13 @@ export const ProductCatalog: React.FC<ProductCatalogProps> = ({
 
   const handleWhatsAppEnquiry = (prod: Product, e: React.MouseEvent) => {
     e.stopPropagation();
-    const priceStr = prod.price ? `₹${prod.price}` : 'Price on enquiry';
-    const msg = `Namaste Gelkrupa Chudighar! 🙏\n\nI am interested in *${prod.name}* (${prod.categoryLabel}, ${priceStr}) from your boutique website.\n\nCould you please let me know availability and size options? Thank you!`;
-    window.open(generateWhatsAppUrl(msg), '_blank', 'noopener,noreferrer');
+    openWhatsAppInquiry({
+      title: prod.name,
+      image: prod.image,
+      price: prod.price,
+      categoryLabel: prod.categoryLabel,
+      size: prod.sizes[0] || '2-6',
+    });
   };
 
   return (

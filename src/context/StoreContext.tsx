@@ -7,6 +7,15 @@ export interface EnquiryItem {
   quantity: number;
 }
 
+export interface WhatsAppInquiryData {
+  title: string;
+  image: string;
+  price?: number;
+  categoryLabel?: string;
+  size?: string;
+  description?: string;
+}
+
 interface StoreContextType {
   enquiryItems: EnquiryItem[];
   addToEnquiry: (product: Product, size?: string) => void;
@@ -20,6 +29,9 @@ interface StoreContextType {
   setIsSizeGuideOpen: (open: boolean) => void;
   activeQuickViewProduct: Product | null;
   setActiveQuickViewProduct: (product: Product | null) => void;
+  activeWhatsAppInquiry: WhatsAppInquiryData | null;
+  setActiveWhatsAppInquiry: (data: WhatsAppInquiryData | null) => void;
+  openWhatsAppInquiry: (data: WhatsAppInquiryData) => void;
   generateWhatsAppUrl: (message: string) => string;
 }
 
@@ -38,6 +50,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
   const [isSizeGuideOpen, setIsSizeGuideOpen] = useState(false);
   const [activeQuickViewProduct, setActiveQuickViewProduct] = useState<Product | null>(null);
+  const [activeWhatsAppInquiry, setActiveWhatsAppInquiry] = useState<WhatsAppInquiryData | null>(null);
 
   useEffect(() => {
     try {
@@ -46,6 +59,10 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       console.warn('Storage error', e);
     }
   }, [enquiryItems]);
+
+  const openWhatsAppInquiry = (data: WhatsAppInquiryData) => {
+    setActiveWhatsAppInquiry(data);
+  };
 
   const addToEnquiry = (product: Product, size?: string) => {
     const chosenSize = size || (product.sizes.length > 0 ? product.sizes[1] || product.sizes[0] : '2-6');
@@ -108,6 +125,9 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         setIsSizeGuideOpen,
         activeQuickViewProduct,
         setActiveQuickViewProduct,
+        activeWhatsAppInquiry,
+        setActiveWhatsAppInquiry,
+        openWhatsAppInquiry,
         generateWhatsAppUrl,
       }}
     >

@@ -28,15 +28,18 @@ export const EnquiryDrawer: React.FC = () => {
 
     let message = `Namaste Gelkrupa Chudighar! 🙏\n\nI am browsing your collection on your website and would like to enquire about availability and ordering for the following bangles:\n\n`;
 
+    const origin = typeof window !== 'undefined' ? window.location.origin : '';
+
     enquiryItems.forEach((item, idx) => {
+      const imgUrl = `${origin}${item.product.image}`;
       message += `${idx + 1}. *${item.product.name}*\n`;
       message += `   • Category: ${item.product.categoryLabel}\n`;
       message += `   • Size: ${item.selectedSize}\n`;
       message += `   • Quantity: ${item.quantity}\n`;
       if (item.product.price) {
-        message += `   • Price: ₹${item.product.price * item.quantity} (${item.product.priceNote || 'Set'})\n`;
+        message += `   • Price: ₹${(item.product.price * item.quantity).toLocaleString('en-IN')} (${item.product.priceNote || 'Set'})\n`;
       }
-      message += `\n`;
+      message += `   • 📸 Design Photo: ${imgUrl}\n\n`;
     });
 
     if (estimatedSubtotal > 0) {
@@ -218,14 +221,14 @@ export const EnquiryDrawer: React.FC = () => {
               </div>
             )}
             <p className="text-[11px] text-stone-500 leading-snug">
-              Clicking below opens WhatsApp with all your chosen items pre-filled to message our boutique in Mota Varachha.
+              Clicking below opens WhatsApp with all your chosen bangles, wrist sizes, and direct design photo links pre-filled.
             </p>
             <button
               onClick={handleSendWhatsAppEnquiry}
               className="w-full flex items-center justify-center gap-2 py-3 px-4 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-medium text-sm rounded-xl shadow-md transition-all active:scale-[0.98]"
             >
               <Send className="w-4 h-4" />
-              <span>Send Complete Enquiry via WhatsApp</span>
+              <span>Send Enquiry with Photo Links on WhatsApp</span>
             </button>
             <div className="text-center">
               <span className="text-[11px] text-stone-400">

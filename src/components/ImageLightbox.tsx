@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Send } from 'lucide-react';
 import { GalleryItem } from '../data/storeConfig';
 import { useStore } from '../context/StoreContext';
+import { shareProductToWhatsApp } from '../utils/shareUtils';
 
 interface ImageLightboxProps {
   items: GalleryItem[];
@@ -16,7 +17,7 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
   onClose,
   onNavigate,
 }) => {
-  const { generateWhatsAppUrl } = useStore();
+  const { generateWhatsAppUrl, openWhatsAppInquiry } = useStore();
   const [isZoomed, setIsZoomed] = useState(false);
 
   useEffect(() => {
@@ -45,9 +46,11 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
   const currentItem = items[currentIndex];
 
   const handleWhatsAppInquiry = () => {
-    const message = `Namaste Gelkrupa Chudighar! 🙏\n\nI was admiring this design from your gallery on your website:\n*${currentItem.title}* (${currentItem.category}).\n\nIs this design currently available or customizable for my wrist size? Thank you!`;
-    const url = generateWhatsAppUrl(message);
-    window.open(url, '_blank', 'noopener,noreferrer');
+    openWhatsAppInquiry({
+      title: currentItem.title,
+      image: currentItem.image,
+      categoryLabel: currentItem.category,
+    });
   };
 
   return (

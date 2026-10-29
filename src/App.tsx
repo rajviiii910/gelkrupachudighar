@@ -20,6 +20,7 @@ import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { ProductModal } from './components/ProductModal';
 import { SizeGuideModal } from './components/SizeGuideModal';
 import { EnquiryDrawer } from './components/EnquiryDrawer';
+import { WhatsAppPhotoModal } from './components/WhatsAppPhotoModal';
 import { Collection } from './data/storeConfig';
 
 export default function App() {
@@ -82,6 +83,7 @@ export default function App() {
         <ProductModal />
         <SizeGuideModal />
         <EnquiryDrawer />
+        <WhatsAppPhotoModal />
       </div>
     </StoreProvider>
   );
